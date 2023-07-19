@@ -1,6 +1,16 @@
+import { type } from 'os'
 import Todo from './Todo'
 
-const TodoList = ({ todos }) => {
+type TodoListProps = {
+  todos: {
+    id: string
+    createdAt: Date
+    content: string
+    completed: boolean
+  }[]
+}
+
+const TodoList = ({ todos }: TodoListProps) => {
   return (
     <div>
       {todos.map((todo) => (

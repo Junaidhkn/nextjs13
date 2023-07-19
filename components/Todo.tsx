@@ -1,8 +1,18 @@
 'use client'
 import { completeTodo } from '@/helper/actions'
+import { type } from 'os'
 import { useTransition } from 'react'
 
-const Todo = ({ todo }) => {
+type todoProp = {
+  todo: {
+    id: string
+    createdAt: Date
+    content: string
+    completed: boolean
+  }
+}
+
+const Todo = ({ todo }: todoProp) => {
   const [isPending, startTransition] = useTransition()
   return (
     <div
