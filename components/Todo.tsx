@@ -1,6 +1,5 @@
 'use client'
 import { completeTodo } from '@/helper/actions'
-import { type } from 'os'
 import { useTransition } from 'react'
 
 type todoProp = {

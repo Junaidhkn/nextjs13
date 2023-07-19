@@ -1,12 +1,12 @@
 'use server'
-import db from '@/helper/db'
+import prisma from '@/helper/db'
 import { revalidatePath } from 'next/cache'
 
 export const newTodo = async (data: FormData) => {
   const newTodo = data.get('todo') as string
 
   if (newTodo) {
-    await db.todo.create({
+    await prisma.todo.create({
       data: {
         content: newTodo,
       },
@@ -16,7 +16,7 @@ export const newTodo = async (data: FormData) => {
 }
 
 export const completeTodo = async (id: string) => {
-  await db.todo.update({
+  await prisma.todo.update({
     where: { id },
     data: {
       completed: true,
