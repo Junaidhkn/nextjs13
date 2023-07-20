@@ -15,11 +15,13 @@ export const newTodo = async (data: FormData) => {
   }
 }
 
-export const completeTodo = async (id: string) => {
+// write a conditional using prisma if completed is true then turn it inot false and vice versa
+
+export const updateTodo = async (id: string, completed: boolean) => {
   await prisma.todo.update({
     where: { id },
     data: {
-      completed: true,
+      completed: !completed,
     },
   })
   revalidatePath('/todos')
