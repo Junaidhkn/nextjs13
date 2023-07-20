@@ -1,3 +1,4 @@
+import NewTodoForm from '@/components/NewTodoForm'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -23,7 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} flex flex-col justify-center items-center`}
+      >
         <header className="flex justify-center items-center p-4">
           <nav className="flex space-x-4 ">
             <ul className="flex items-center space-x-4">
@@ -35,6 +38,9 @@ export default function RootLayout({
             </ul>
           </nav>
         </header>
+        <div className="">
+          <NewTodoForm />
+        </div>
         <main>{children}</main>
       </body>
     </html>
